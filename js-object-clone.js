@@ -2,18 +2,18 @@
     'use strict';
 
     Object.clone = function(obj) {
-        //in case of primitives
+        //Primitive
         if (obj === null || typeof obj !== 'object')
             return obj;
 
-        //date objects should be 
+        //Date
         if (obj instanceof Date) {
             let clonedDate = new Date(obj.getTime());
             
             return clonedDate;
         }
         
-        //handle Array
+        //Array
         if (Array.isArray(obj)) {
             let clonedArray = [];
             
@@ -24,7 +24,7 @@
             return clonedArray;
         }
 
-        //lastly, handle objects
+        //Object
         var clonedObj = new obj.constructor();
         for (let prop in obj) {
             if (obj.hasOwnProperty(prop))
